@@ -12,6 +12,15 @@ function clean() {
     display.textContent = ""
     periodCounter = 0
 }
+function deleted() {
+    del = display.textContent
+    lastLetter = del.slice(-1)
+    if (lastLetter === " ") {
+        display.textContent = del.slice(0, del.length - 3)
+    } else {
+        display.textContent = del.slice(0, del.length - 1)
+    }
+}
 function showDisplay(splitValue) {
     if (splitValue[2]) {
         display.textContent = splitValue.join(" ")
@@ -71,6 +80,7 @@ function divide(a,b) {
 let constainer = document.querySelector(".container")
 let display = document.querySelector(".display")
 let clear = document.querySelector(".clear")
+let deleter = document.querySelector(".delete")
 let button7 = document.querySelector(".button7")
 let button8 = document.querySelector(".button8")
 let button9 = document.querySelector(".button9")
@@ -88,6 +98,7 @@ let buttonP = document.querySelector(".buttonP")
 let buttonE = document.querySelector(".buttonE")
 let buttonA = document.querySelector(".buttonA")
 clear.addEventListener("click", () => clean())
+deleter.addEventListener("click", () => deleted())
 button7.addEventListener("click", () => button("7"))
 button8.addEventListener("click", () => button("8"))
 button9.addEventListener("click", () => button("9"))
